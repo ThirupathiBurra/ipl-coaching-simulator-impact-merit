@@ -9,18 +9,18 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 
 // ─── Guard: are real credentials present? ────────────────────────────────────
 export function isFirebaseReady() {
-  const key = import.meta.env.VITE_FIREBASE_API_KEY ?? "";
+  const key = import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDCoLrkcEs1uACYqh5gYi1f2aM7YUfE_Sg";
   return key.length > 0 && key !== "your_firebase_api_key";
 }
 
 const firebaseConfig = {
-  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY            ?? "",
-  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN        ?? "",
-  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID         ?? "",
-  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET     ?? "",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ?? "",
-  appId:             import.meta.env.VITE_FIREBASE_APP_ID             ?? "",
-  measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID     ?? "",
+  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY            || "AIzaSyDCoLrkcEs1uACYqh5gYi1f2aM7YUfE_Sg",
+  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN        || "ipl-coaching-simulator.firebaseapp.com",
+  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID         || "ipl-coaching-simulator",
+  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET     || "ipl-coaching-simulator.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "271846822701",
+  appId:             import.meta.env.VITE_FIREBASE_APP_ID             || "1:271846822701:web:c01021416e8774601179a4",
+  measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID     || "",
 };
 
 // Singleton initialisation — safe for HMR
