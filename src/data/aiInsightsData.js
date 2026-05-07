@@ -1,0 +1,63 @@
+// ─── AI Insights Mock Data ──────────────────────────────────────────────────
+export const AI_INSIGHTS = [
+  {
+    id: "ai-1",
+    type: "FIELD_PLACEMENT",
+    confidence: 94,
+    title: "Deploy Third Man for Bumrah's Next Over",
+    summary: "Shivam Dube has scored 68% of his boundary runs through the third-man region against right-arm seamers in the last 3 IPL seasons.",
+    detail: "Based on wagon-wheel analysis, Dube consistently looks to upper-cut pace bowlers when the ball is angled into him. Setting a deeper third man (not the conventional position) will cut off his primary scoring zone. AI recommendation: move the fielder from gully to deep third man.",
+    impact: "+8.2 IMS",
+    matchContext: "Over 14.4 | CSK needs 54 off 33",
+    tags: ["Field Placement", "Batting Pattern", "Bumrah"],
+    riskLevel: "LOW",
+  },
+  {
+    id: "ai-2",
+    type: "BOWLING_CHANGE",
+    confidence: 88,
+    title: "Kartikeya vs Jadeja — Spin Battle",
+    summary: "Left-arm spinners have dismissed Jadeja 4/7 times in powerplay/death situations. Kartikeya's arm ball is particularly effective.",
+    detail: "Jadeja has a known weakness against wrist spinners bowling into the rough outside his off-stump. Kumar Kartikeya's googly average is 16.4 against left-handers. The data strongly supports bringing him on now to exploit Jadeja's defensive vulnerabilities.",
+    impact: "+11.5 IMS",
+    matchContext: "Over 14 | Jadeja on strike",
+    tags: ["Bowling Change", "Spin Matchup", "Kartikeya"],
+    riskLevel: "MEDIUM",
+  },
+  {
+    id: "ai-3",
+    type: "TACTICAL",
+    confidence: 76,
+    title: "Defensive Field in the 15th Over — Counter-intuitive",
+    summary: "Setting an attacking field in over 15 may seem natural, but historical data shows CSK score 40% more when the field is up in overs 15-17.",
+    detail: "CSK have a pattern of manufactured runs through gaps when fielders crowd the bat. Spreading the field to protect boundaries in over 15 is counter-intuitive but statistically optimal. Their required run rate will balloon to 13.4 if they manage only singles.",
+    impact: "+6.8 IMS",
+    matchContext: "Over 15 upcoming | RRR 11.6",
+    tags: ["Tactical", "Field Setup", "Death Overs"],
+    riskLevel: "HIGH",
+  },
+  {
+    id: "ai-4",
+    type: "BATTING_PATTERN",
+    confidence: 91,
+    title: "Dube's Weakness — Short Ball Outside Off",
+    summary: "Dube has been dismissed by short-pitched deliveries outside off stump in 5 of his last 8 T20 innings.",
+    detail: "Short ball angled across Dube forces an awkward pull that often leads to top edges. Bumrah's back-of-length delivery at 145+ kmph in the slot outside off is near-unplayable for Dube. Recommend: 2 short balls per over in his remaining spell.",
+    impact: "+13.1 IMS",
+    matchContext: "Dube: 34(28) | In form",
+    tags: ["Batting Weakness", "Short Ball", "Bumrah"],
+    riskLevel: "LOW",
+  },
+];
+
+export const GEMINI_ANALYSIS_PLACEHOLDER = {
+  isLoading: false,
+  lastUpdated: "14.3 overs",
+  winProbability: { MI: 72, CSK: 28 },
+  keyInsight: "CSK require a 180+ SR from their remaining batters. The match is firmly in MI's hands unless a Dhoni special changes the equation.",
+  riskFactors: [
+    "MS Dhoni yet to bat — historical 25+ ball finishes",
+    "Bumrah has 1 over remaining — over-management risk",
+    "Wankhede dew factor in overs 17-20",
+  ],
+};

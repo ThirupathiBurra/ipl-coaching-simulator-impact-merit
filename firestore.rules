@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── users/{userId} ─────────────────────────────────────────────────────
+    // Only the owner can read/write their own profile
+    match /users/{userId} {
+      allow read:  if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ─── coaching_decisions/{docId} ─────────────────────────────────────────
+    // Each decision has a uid field — only its owner can write; read own only
+    match /coaching_decisions/{docId} {
+      allow read:   if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+      allow update, delete: if false; // immutable once written
+    }
+
+    // ─── impact_scores/{docId} ──────────────────────────────────────────────
+    // Any authenticated user can read (for leaderboard context); write = owner
+    match /impact_scores/{docId} {
+      allow read:   if request.auth != null;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+      allow update, delete: if false;
+    }
+
+    // ─── leaderboards/{userId} ──────────────────────────────────────────────
+    // Doc ID == uid. Authenticated users can read all; only owner can write own
+    match /leaderboards/{userId} {
+      allow read:  if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ─── live_matches/{matchId} ─────────────────────────────────────────────
+    // Read-only for all authenticated users; writes only via Admin SDK / Cloud Functions
+    match /live_matches/{matchId} {
+      allow read:  if request.auth != null;
+      allow write: if false;
+    }
+
+    // ─── ai_insights/{docId} ────────────────────────────────────────────────
+    // Read-only for authenticated users; written only by backend AI service
+    match /ai_insights/{docId} {
+      allow read:  if request.auth != null;
+      allow write: if false;
+    }
+  }
+}
