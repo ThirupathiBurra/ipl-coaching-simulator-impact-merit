@@ -2,6 +2,8 @@
 
 > **An AI-powered virtual cricket coaching platform** — make real-time captaincy decisions during live IPL matches, compare your tactics against actual captain choices, and earn Impact Merit Scores (IMS) powered by Gemini AI analytics.
 
+🚀 **Live Demo:** [https://ipl-coaching-simulator.web.app/](https://ipl-coaching-simulator.web.app/)
+
 ---
 
 ## ✨ Features
