@@ -34,10 +34,8 @@ export const googleProvider = new GoogleAuthProvider();
 googleProvider.addScope("profile");
 googleProvider.addScope("email");
 
-// Analytics — only in production browser context
-export const analytics = isFirebaseReady() && typeof window !== "undefined"
-  ? isSupported().then((yes) => (yes ? getAnalytics(app) : null)).catch(() => null)
-  : null;
+// Analytics — disabled for hackathon to prevent 403 API permission errors in console
+export const analytics = null;
 
 // ─── Local Emulator connections (VITE_FIREBASE_USE_EMULATOR=true) ────────────
 if (import.meta.env.VITE_FIREBASE_USE_EMULATOR === "true") {
